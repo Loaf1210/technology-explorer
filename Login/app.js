@@ -29,5 +29,5 @@ form.addEventListener("submit", function (e) {
     alert("Login successful!");
     
     // Redirect to another page
-    window.location.href = "/Main/index.html";
+    window.location.href = "Main/index.html";
 });
