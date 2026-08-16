@@ -4,6 +4,7 @@ const form = document.querySelector("form");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    const username = document.getElementById("username").value.trim();
     const email = document.getElementById("inputEmail4").value.trim();
     const password = document.getElementById("inputPassword4").value.trim();
     const checkbox = document.getElementById("gridCheck").checked;
@@ -20,14 +21,25 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
+    // Username length check (and does not contain symbols)
+    if (username.length < 6 || username.length > 20) {
+        alert("Username must be between 6 and 20 characters.");
+        return;
+    }
+
+    if (!/^[a-zA-Z0-9]+$/.test(username)) {
+        alert("Username can only contain letters and numbers.");
+        return;
+    }
+
     // Checkbox check
     if (!checkbox) {
         alert("You must agree to the Terms of Service.");
         return;
     }
 
-    alert("Login successful!");
-    
+    alert("Successfully registered!");
+
     // Redirect to another page
-    window.location.href = "/Main/index.html";
+    window.location.href = "/Login/index.html";
 });
