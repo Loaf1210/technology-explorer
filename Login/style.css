@@ -1,0 +1,42 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-image: url(img/cinema.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    height: 275px;
+    background-color: cornsilk;
+    border-radius: 10px;
+    border: 5px solid rgb(167, 2, 167);
+    text-align: center;
+    padding: 40px;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+}
+
+#btn {
+    border-radius: 16px;
+}
+
+#btn:hover {
+    background-color: burlywood;
+}
