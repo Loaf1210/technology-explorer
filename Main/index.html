@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .carousel-item {
+            height: 70vh;
+            min-height: 480px;
+        }
+
+        .carousel-item img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            /*image will stretch without this*/
+            object-position: center;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            inset: 0;
+            /*sets top, right, bottom, and left to 0.*/
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+            /*Starts shadow at 0.8 trans -> 0.2 trans, from left to right*/
+        }
+
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            transform: translateY(-50%);
+            /*moves the element UP by 50% of its own height.*/
+            text-align: left;
+            z-index: 2;
+            /* Higher z-index -> appears on top.*/
+            max-width: 640px;
+        }
+
+        .section-padding {
+            padding: 64px 0;
+        }
+
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .bg-dark-tech {
+            background-color: #0f1115;
+        }
+
+        .text-muted-light {
+            color: #a9b3c1;
+            /*custom light gray color for footer text.*/
+        }
+
+        .carousel-item {
+            height: 60vh;
+            min-height: 420px;
+        }
+
+        .carousel-caption h2 {
+            font-size: 28px;
+        }
+
+        .carousel-caption p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark-tech sticky-top">
+        <!--
+      navbar-dark -> use white text for nav
+      bg-dark-tech -> custom dark background
+      sticky-top -> keep navbar fixed
+    -->
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="#">Technology Explorer</a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#trending">Trending</a>
+                        <!--href="#trending" -> go to trending part-->
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">News</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Explore
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#trending">Artificial Intelligence</a></li>
+                            <li><a class="dropdown-item" href="#trending">Cloud Computing</a></li>
+                            <li><a class="dropdown-item" href="#trending">Robotics</a></li>
+                            <li><a class="dropdown-item" href="#trending">Quantum Computing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2 bg-dark text-white border-0 border-bottom" type="search"
+                        placeholder="Search tech..." aria-label="Search">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div id="techCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Artificial Intelligence">
+
+                <div class="carousel-caption">
+                    <h2 class="fw-bold display-6">Artificial Intelligence</h2>
+                    <p class="mt-3 mb-4">
+                        From generative models to real-world automation, AI is reshaping how we work, build and solve
+                        problems.
+                    </p>
+
+                    <a href="#trending" class="btn btn-primary px-4 py-2">Read More</a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="carousel-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Quantum Computing">
+                <div class="carousel-caption">
+                    <h2 class="fw-bold display-6">Quantum Computing</h2>
+                    <p class="mt-3 mb-4">
+                        A new era of computing is on the horizon, built to tackle problems classical systems can't.
+                    </p>
+                    <a href="#trending" class="btn btn-primary px-4 py-2">Read More</a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="carousel-overlay"></div>
+                <img src="https://tse3.mm.bing.net/th/id/OIP.7X_3R502UFDMHJTfJCNj-gHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="Robotics">
+                <div class="carousel-caption">
+                    <h2 class="fw-bold display-6">Robotics & Automation</h2>
+                    <p class="mt-3 mb-4">
+                        Smarter machines are helping industries move faster, safer and more efficiently than ever
+                        before.
+                    </p>
+                    <a href="#trending" class="btn btn-primary px-4 py-2">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#techCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#techCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <section id="trending" class="section-padding bg-light">
+        <div class="container">
+
+            <div class="mb-5">
+                <h2 class="fw-bold">Trending Technologies</h2>
+                <p class="text-muted mb-0">The innovations shaping the world right now</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.AUTrbjzBq8rpKgH5YDznbAHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                            class="card-img-top" alt="Artificial Intelligence">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-semibold">Artificial Intelligence</h5>
+                            <p class="card-text text-muted">
+                                Wondering what’s happening in the AI world? Here are the latest AI breakthroughs and
+                                news that are shaping the world around us!
+                            </p>
+                            <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates"
+                                class="btn btn-outline-primary mt-auto align-self-start">Explore AI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYUytyQgMm3KzVTGb_nZ5KayHRBo7Mnw_5k4bYDZjKAKtHzlSgUD7B3kQ&s=10"
+                            class="card-img-top" alt="Cloud Computing">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-semibold">Cloud Computing</h5>
+                            <p class="card-text text-muted">
+                                Cloud computing is the on-demand availability of computing resources (such as storage
+                                and infrastructure), as services over the internet.
+                            </p>
+                            <a href="https://cloud.google.com/learn/what-is-cloud-computing"
+                                class="btn btn-outline-primary mt-auto align-self-start">Explore Cloud</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="card-img-top" alt="Robotics">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-semibold">Robotics</h5>
+                            <p class="card-text text-muted">
+                                First robot surgeries carried out at city hospital. The first robot-assisted surgeries
+                                using 3D vision have been carried out at a city's hospital.
+                            </p>
+                            <a href="https://www.bbc.com/news/articles/cr7k55073k3o"
+                                class="btn btn-outline-primary mt-auto align-self-start">Explore Robotics</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1639815188546-c43c240ff4df?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="card-img-top" alt="Quantum Computing">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-semibold">Quantum Computing</h5>
+                            <p class="card-text text-muted">
+                                Quantum computing is a field of computer science and engineering that uses
+                                principles from quantum mechanics to process information at top speeds.
+                            </p>
+                            <a href="https://www.ibm.com/think/topics/quantum-computing"
+                                class="btn btn-outline-primary mt-auto align-self-start">Explore Quantum</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="section-padding">
+        <div class="container">
+            <div class="mb-5">
+                <h2 class="fw-bold">Latest Tech News</h2>
+                <p class="text-muted mb-0">Stay up to speed with what's breaking in tech</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-12 col-lg-6">
+
+                    <div class="card h-100 border-0 shadow-sm"> 
+                        <div class="row g-0 h-100">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Semiconductors">
+                            </div>
+
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <span class="text-primary small fw-semibold">HARDWARE</span>
+                                    <a class="card-title h5 mt-2 d-block text-dark text-decoration-none"
+                                        href="https://www.schott.com/en-gb/solutions-magazine/semicon/future-tech-built-on-glass">What
+                                        glass-based chips mean for the devices of tomorrow</a>
+                                    <p class="card-text text-muted">
+                                        As AI workloads grow, glass-core substrates enable smaller, more capable, and
+                                        more responsive devices, paving the way for innovations in health, mobility, and
+                                        connectivity.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    class="img-fluid h-100 w-100" style="object-fit: cover;" alt="AI models">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <span class="text-primary small fw-semibold">AI</span>
+                                    <a class="card-title h5 mt-2 d-block text-dark text-decoration-none"
+                                        href="https://www.okoone.com/spark/product-design-research/why-smaller-ai-models-are-winning-big/">Why
+                                        smaller AI models are winning big</a>
+                                    <p class="card-text text-muted">
+                                        Efficient models are bringing powerful AI to more devices with less compute.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Clean energy">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <span class="text-primary small fw-semibold">CLIMATE TECH</span>
+                                    <a class="card-title h5 mt-2 d-block text-dark text-decoration-none"
+                                        href="https://www.indrastra.com/2026/07/building-smarter-grids-mit-study-shows.html">MIT
+                                        Study Shows Why Renewable Energy Location Matters</a>
+                                    <p class="card-text text-muted">
+                                        With climate change intensifying and electricity demand rising, the challenge
+                                        facing modern power systems extends beyond deploying more renewable energy.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-5">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Connectivity">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <span class="text-primary small fw-semibold">CONNECTIVITY</span>
+                                    <a class="card-title h5 mt-2 d-block text-dark text-decoration-none"
+                                        href="https://flo.net/blog/private-and-dedicated-networks-the-key-to-stable-and-fast-business-connectivity/">The
+                                        Key to Stable and Fast Business Connectivity</a>
+                                    <p class="card-text text-muted">
+                                        In an increasingly digital and competitive business environment, connectivity
+                                        has become a strategic pillar.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-12 col-lg-6">
+                    <h2 class="fw-bold mb-4">Why explore technology?</h2>
+                    <p class="text-muted mb-4">
+                        Technology isn't just about gadgets. It's about solving real problems, building new ideas, and
+                        understanding
+                        the changes shaping our future.
+                    </p>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex gap-3">
+                            <div>
+                                <h5 class="fw-semibold mb-1">Stay informed</h5>
+                                <p class="text-muted mb-0">Cut through the noise and keep up with developments that
+                                    actually matter.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <div>
+                                <h5 class="fw-semibold mb-1">Think ahead</h5>
+                                <p class="text-muted mb-0">Understand emerging trends to spot opportunities early.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3">
+                            <div>
+                                <h5 class="fw-semibold mb-1">Build with confidence</h5>
+                                <p class="text-muted mb-0">Learn the tools and ideas behind the products shaping
+                                    tomorrow.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        class="img-fluid w-100" alt="Technology workspace"
+                        style="object-fit: cover; height: 100%; min-height: 360px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark-tech text-white py-5">
+
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-12 col-lg-4">
+                    <h5 class="fw-semibold mb-3">Technology Explorer</h5>
+
+                    <p class="text-muted-light mb-0">
+                        Your space to explore, understand and stay updated on the technologies shaping our world.
+                    </p>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <h6 class="fw-semibold mb-3">Explore</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#trending" class="text-muted-light text-decoration-none">AI</a></li>
+                        <li class="mb-2"><a href="#trending" class="text-muted-light text-decoration-none">Cloud</a>
+                        </li>
+                        <li class="mb-2"><a href="#trending" class="text-muted-light text-decoration-none">Robotics</a>
+                        </li>
+                        <li class="mb-2"><a href="#trending" class="text-muted-light text-decoration-none">Quantum</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+
+                    <h6 class="fw-semibold mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted-light text-decoration-none">About</a></li>
+                        <li class="mb-2"><a href="#news" class="text-muted-light text-decoration-none">News</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-4">
+
+                    <h6 class="fw-semibold mb-3">Stay in the loop</h6>
+                    <p class="text-muted-light mb-3">Get a short digest of the latest tech news, straight to your inbox.
+                    </p>
+
+                    <form class="d-flex">
+                        <input type="email" class="form-control bg-dark text-white border-0 border-bottom me-2"
+                            placeholder="Enter your email">
+                        <button class="btn btn-primary" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="border-secondary mt-4 mb-4">
+
+            <p class="text-muted-light mb-0 text-center">&copy; 2025 Technology Explorer, Doan.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
