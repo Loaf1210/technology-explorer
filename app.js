@@ -41,5 +41,5 @@ form.addEventListener("submit", function (e) {
     alert("Successfully registered!");
 
     // Redirect to another page
-    window.location.href = "/Login/index.html";
+    window.location.href = "../Login/index.html";
 });
